@@ -82,6 +82,19 @@ This matters for what the project can claim. It demonstrates a modelling
 workflow and a way of reporting results. It does not tell you anything about the
 actual used EV market, and the write-up should not pretend otherwise.
 
+## Column names
+
+The competition data ships with Korean column names and they are kept as-is, so
+the code here runs against the file as downloaded. Their meanings:
+
+| Column | Meaning | | Column | Meaning |
+|---|---|---|---|---|
+| `제조사` | manufacturer | | `사고이력` | accident history |
+| `모델` | model name | | `연식(년)` | model year |
+| `차량상태` | condition (e.g. Brand New) | | `주행거리(km)` | mileage, km |
+| `배터리용량` | battery capacity | | `보증기간(년)` | warranty, years |
+| `구동방식` | drivetrain | | `가격(백만원)` | price, million won |
+
 ## Pipeline
 
 - **Imputation** — KNN (k=5) for mileage, warranty and model year; most-frequent

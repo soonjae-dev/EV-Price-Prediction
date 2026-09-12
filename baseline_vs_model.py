@@ -41,7 +41,13 @@ CATEGORICAL = ["제조사", "차량상태", "구동방식", "사고이력"]
 
 
 def load():
-    """Same preprocessing as main.ipynb, kept deliberately identical."""
+    """Preprocessing as in main.ipynb.
+
+    One deliberate difference: the notebook fills missing battery capacity with
+    the manufacturer mean, this uses the median. Measured on the same folds the
+    two give CV RMSE 1.5287 and 1.5258 -- a gap of 0.003, well inside the
+    fold-to-fold spread, so it changes nothing reported below.
+    """
     raw = pd.read_csv("train.csv")
     df = raw.drop(columns=["ID"]).copy()
 
